@@ -38,3 +38,6 @@ The MVP will be considered successful if a user can:
 - open details for an interface
 - understand the suggested action for a problem
 - access the deployed prototype through a production environment
+
+### 1.9 Project Status
+This document represents the initial project definition and will be updated as the MVP is designed, implemented, tested and deployed.
