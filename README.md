@@ -177,3 +177,64 @@ This workflow supports traceability because each feature can be linked back to a
 ### 3.5 Planning Rationale
 
 Kanban was selected because it supports a simple and visible flow of work. For this MVP, the aim is not to use a heavy project management method but to show that the work can be planned, prioritised and delivered incrementally. The board also helps control scope, which is important because the project must remain small enough to complete within the assessment timeframe.
+
+## 4. UX Design and Prototype
+
+The UX design for the Integration Health Dashboard was created before implementation to define the structure of the MVP and reduce the risk of building an unclear or overloaded interface. The prototype focuses on the main workflow of an integration support user who needs to identify interface issues quickly.
+
+### 4.1 Target User
+
+The target user is an integration support engineer or live service engineer. This user needs a clear view of interface health during daily checks, release support or incident investigation.
+
+### 4.2 User Goal
+
+The main user goal is to quickly identify which interfaces are healthy, which require attention and which have failed. The user should also be able to search for a specific interface, filter the interface list and view basic details about a selected item.
+
+### 4.3 User Flow
+
+The main user flow is:
+
+1. The user opens the dashboard.
+2. The user reviews the summary cards.
+3. The user searches or filters the interface list.
+4. The user selects an interface.
+5. The user reviews the details, error message and suggested action.
+6. The user returns to the dashboard.
+
+### 4.4 Prototype Screens
+
+The Figma prototype includes the following screens:
+
+| Screen | Purpose |
+|---|---|
+| Dashboard Overview | Shows summary cards, search, status filter and interface table |
+| Interface Details | Shows detailed information about a selected interface |
+| Empty State | Shows a message when no records match the current search or filter |
+
+### 4.5 UX Design Decisions
+
+The dashboard uses summary cards at the top because support users need to understand the overall health position quickly. The interface table is placed underneath the summary because it provides the detailed records behind the summary numbers.
+
+Search and filtering are placed above the table because they are the main controls used to reduce the number of visible records. The details screen is kept simple and focused on operational information: status, type, last run time, error message and suggested action.
+
+The design avoids real employer or client data. All interface names and examples in the prototype are fictional.
+
+### 4.6 Figma Prototype
+
+Figma prototype link:
+
+(https://www.figma.com/design/3skk9jFy2yVn7iiYblW9qp/Integration-Health-Dashboard-UX-Prototype?node-id=2-3&t=3JpahDibAjDNBErg-1)
+
+### 4.7 Prototype Screenshots
+
+#### Dashboard Overview
+
+![Dashboard Overview](docs/images/dashboard-overview.png)
+
+#### Interface Details
+
+![Interface Details](docs/images/interface-details.png)
+
+#### Empty State
+
+![Empty State](docs/images/empty-state.png)
