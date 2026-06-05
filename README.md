@@ -238,3 +238,59 @@ Figma prototype link:
 #### Empty State
 
 ![Empty State](docs/images/empty-state.png)
+
+## 5. Project Setup
+
+The MVP was set up as a React application using Vite. React was selected because it supports a component-based approach to building user interfaces, while Vite provides a fast and lightweight development environment suitable for a small front-end prototype.
+
+This setup stage created the initial application structure and confirmed that the project can run locally before adding the main dashboard features.
+
+### 5.1 Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React | Building the user interface |
+| Vite | Front-end build tool and development server |
+| CSS | Styling the MVP interface |
+| GitHub | Source control, issues and pull requests |
+| GitHub Projects | Kanban-based project planning |
+
+### 5.2 Initial Project Structure
+
+The initial project structure includes dedicated folders for components, mock data, utility logic and tests.
+
+```text
+src/
+  components/
+  data/
+  utils/
+  tests/
+```
+
+### 5.3 Running the Project Locally
+
+To run the project locally, the user needs to install the project dependencies and start the Vite development server.
+
+```bash
+npm install
+npm run dev
+```
+
+The development server runs locally using Vite. The first setup version displays a placeholder dashboard page confirming that the MVP structure has been created.
+
+### 5.4 Setup Verification
+
+The setup was verified by running the application locally and checking that the browser displayed the initial dashboard placeholder page.
+
+The placeholder page includes:
+
+- the project title
+- a short description of the dashboard purpose
+- a visible mock data notice
+- confirmation that the MVP setup is complete
+
+### 5.5 Setup Decision
+
+At this stage, the project does not include live data, authentication, backend services or production integrations. This decision keeps the MVP small and avoids confidentiality or security risks.
+
+The application will use fictional mock data only. The next stage will add mock interface records that can be used to build and test the dashboard features.
