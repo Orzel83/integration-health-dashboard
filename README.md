@@ -117,3 +117,63 @@ The MVP will be accepted as complete when:
 - Core logic is covered by automated tests.
 - The application is deployed to a production environment.
 - The README includes user and technical documentation.
+
+## 3. Project Planning
+
+The project is planned using a Kanban workflow in GitHub Projects. This approach was selected because the MVP is small, iterative and suitable for incremental delivery through issues, branches and pull requests.
+
+The Kanban board is used to visualise the status of each task and to support a controlled development process. Each major feature or documentation activity is represented as a GitHub issue. Work is completed on separate branches and merged into the main branch using pull requests.
+
+### 3.1 Kanban Workflow
+
+| Column | Purpose |
+|---|---|
+| Backlog | Tasks identified for the MVP but not yet ready to start |
+| To Do | Tasks ready to be started |
+| In Progress | Tasks currently being worked on |
+| In Review | Tasks waiting for review or pull request merge |
+| Done | Completed tasks |
+
+### 3.2 Milestone
+
+The main milestone for this project is `MVP v1.0`.
+
+This milestone represents the first working version of the Integration Health Dashboard. It includes the core dashboard features, mock data, search, filtering, details panel, automated tests, CI/CD pipeline, production deployment and documentation.
+
+### 3.3 Planned MVP Issues
+
+| Issue | Purpose |
+|---|---|
+| Set up React Vite project structure | Create the initial front-end application structure |
+| Create mock interface data | Add fictional data for dashboard development and testing |
+| Implement status summary logic with tests | Use TDD to develop the logic for status counts |
+| Build dashboard summary cards | Display total, healthy, warning and failed interface counts |
+| Build interface table | Display the mock interface records in a readable table |
+| Add search functionality with tests | Allow users to search for interfaces by name |
+| Add status filtering with tests | Allow users to filter records by interface status |
+| Build interface details panel | Show detailed information for a selected interface |
+| Add accessibility and usability improvements | Improve readability, accessibility and basic UX quality |
+| Configure CI pipeline | Run automated tests through GitHub Actions |
+| Deploy MVP to production environment | Make the MVP available through a production deployment |
+| Complete user and technical documentation | Complete README documentation for users and developers |
+
+### 3.4 Development Workflow
+
+The development workflow for the project follows these steps:
+
+1. Create or select a GitHub issue.
+2. Move the issue into `In Progress`.
+3. Create a feature branch from `main`.
+4. Implement the required change.
+5. Commit the change with a clear message.
+6. Push the branch to GitHub.
+7. Open a pull request.
+8. Move the issue into `In Review`.
+9. Merge the pull request after checking the changes.
+10. Move the issue into `Done`.
+
+This workflow supports traceability because each feature can be linked back to an issue and pull request.
+
+### 3.5 Planning Rationale
+
+Kanban was selected because it supports a simple and visible flow of work. For this MVP, the aim is not to use a heavy project management method but to show that the work can be planned, prioritised and delivered incrementally. The board also helps control scope, which is important because the project must remain small enough to complete within the assessment timeframe.
