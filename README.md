@@ -445,3 +445,41 @@ The screenshot below shows the dashboard summary cards implemented in the React 
 ### 8.4 Design Decision
 
 The summary cards are placed at the top of the dashboard because they provide the fastest way for the user to understand the overall monitoring position. This matches the UX prototype and supports the main user goal of quickly identifying whether there are failed or warning interfaces.
+
+## 9. Interface Table
+
+This stage added the main interface table to the React MVP. The table displays the fictional interface monitoring records stored in the local mock JSON file.
+
+The purpose of the table is to give the support user a more detailed view of the records behind the dashboard summary cards.
+
+### 9.1 Implementation
+
+A reusable `InterfaceTable` component was created and stored in:
+
+```text
+src/components/InterfaceTable.jsx
+```
+
+The component receives the mock interface records as a prop and renders them in a table.
+
+The table displays the following fields:
+
+| Field | Purpose |
+|---|---|
+| Interface Name | Shows the fictional interface name and interface ID |
+| Type | Shows the interface type, such as REST, SOAP, FILE or IDoc |
+| Status | Shows the current health status using a visual badge |
+| Last Run | Shows the fictional last run timestamp |
+| Owner | Shows the fictional support owner or team |
+
+### 9.2 UI Evidence
+
+The screenshot below shows the implemented interface table in the React MVP.
+
+![Interface table](docs/images/interface-table.png)
+
+### 9.3 Design Decision
+
+The interface table is placed below the summary cards because the cards provide a quick overview, while the table provides the detailed records needed for investigation.
+
+Status values are displayed as visual badges to help the user quickly identify healthy, warning and failed records. This supports the main user goal of identifying problem interfaces quickly.
