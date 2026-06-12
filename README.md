@@ -340,3 +340,61 @@ The MVP uses three status values:
 No real employer, client or production information is used in the mock dataset. The interface names, errors, timestamps, owners and environments are fictional and created only for the purpose of this assessment project.
 
 This keeps the MVP suitable for public demonstration and avoids exposing confidential operational information.
+
+## 7. Status Summary Logic and TDD
+
+This stage introduced the first tested logic for the Integration Health Dashboard. The purpose of the logic is to calculate a summary of interface health statuses from the mock interface dataset.
+
+The status summary will later be used by the dashboard cards to show the total number of interfaces and the number of healthy, warning and failed records.
+
+### 7.1 TDD Approach
+
+A Test Driven Development approach was used for the status summary logic. The expected behaviour was defined in tests before finalising the implementation.
+
+The tests cover the following scenarios:
+
+| Test Scenario | Expected Result |
+|---|---|
+| Empty interface list | Returns zero for total, healthy, warning and failed |
+| Mixed interface statuses | Correctly counts Healthy, Warning and Failed records |
+| Unknown status value | Includes the item in total but does not add it to known status counts |
+
+### 7.2 Utility Function
+
+The status summary logic is stored in:
+
+```text
+src/utils/interfaceUtils.js
+```
+
+The test file is stored in:
+
+```text
+src/tests/interfaceUtils.test.js
+```
+
+### 7.3 Running the Tests
+
+The tests can be run locally using:
+
+```bash
+npm test
+```
+
+### 7.4 TDD Result
+
+The initial test run failed because the utility function had not yet been implemented. After creating the `getStatusSummary` function, the tests passed successfully.
+
+This demonstrates a small but clear use of TDD within the MVP. The logic is tested separately from the user interface, which makes it easier to maintain and reuse in later dashboard components.
+
+### 7.5 Test Evidence
+
+The screenshots below show the TDD process used for the status summary logic. The first screenshot shows the test failing before the implementation was completed. The second screenshot shows the same test suite passing after the `getStatusSummary` function was implemented.
+
+#### Failed Test Run
+
+![Failed status summary test](docs/images/status-summary-test-failed.png)
+
+#### Passed Test Run
+
+![Passed status summary test](docs/images/status-summary-test-passed.png)
