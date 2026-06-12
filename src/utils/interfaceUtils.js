@@ -27,3 +27,20 @@ export function getStatusSummary(interfaces) {
     }
   );
 }
+
+export function searchInterfaces(interfaces, searchTerm) {
+  if (!searchTerm) {
+    return interfaces;
+  }
+
+  const term = searchTerm.toLowerCase();
+
+  return interfaces.filter((item) => {
+    return (
+      item.id?.toLowerCase().includes(term) ||
+      item.name?.toLowerCase().includes(term) ||
+      item.system?.toLowerCase().includes(term) ||
+      item.status?.toLowerCase().includes(term)
+    );
+  });
+}

@@ -483,3 +483,66 @@ The screenshot below shows the implemented interface table in the React MVP.
 The interface table is placed below the summary cards because the cards provide a quick overview, while the table provides the detailed records needed for investigation.
 
 Status values are displayed as visual badges to help the user quickly identify healthy, warning and failed records. This supports the main user goal of identifying problem interfaces quickly.
+
+## 10. Search Functionality and Tests
+
+This stage added search functionality to the Integration Health Dashboard MVP. The user can now search fictional interface records by interface name, and the interface table updates based on the search term.
+
+The search feature supports the main user goal because a support user may need to find a specific interface quickly during daily checks or issue investigation.
+
+### 10.1 TDD Approach
+
+The search logic was developed with automated tests. The tests define the expected behaviour before the search feature is used in the user interface.
+
+The search tests cover the following scenarios:
+
+| Test Scenario | Expected Result |
+|---|---|
+| Empty search term | Returns all interface records |
+| Matching search term | Returns matching interface records |
+| Lowercase search term | Search is case-insensitive |
+| No matching search term | Returns an empty list |
+
+### 10.2 Implementation
+
+The search logic is stored in:
+
+```text
+src/utils/interfaceUtils.js
+```
+
+The test file is stored in:
+
+```text
+src/tests/interfaceUtils.test.js
+```
+
+The dashboard uses a controlled React search input in:
+
+```text
+src/App.jsx
+```
+
+The search function filters the mock interface records by interface name. If no records match the search term, the MVP displays an empty state message and a clear search button.
+
+### 10.3 Test Evidence
+
+The screenshots below show the search logic test before and after implementation.
+
+#### Failed Search Test
+
+![Failed search test](docs/images/search-test-failed.png)
+
+#### Passed Search Test
+
+![Passed search test](docs/images/search-test-passed.png)
+
+### 10.4 UI Evidence
+
+The screenshot below shows the search input working in the React MVP.
+
+![Search functionality](docs/images/search-functionality.png)
+
+### 10.5 Design Decision
+
+The search input is placed above the interface table because it controls which records are displayed. The search is case-insensitive to make the feature easier to use. An empty state was added so that the user understands why no records are displayed when the search term does not match any interface.
