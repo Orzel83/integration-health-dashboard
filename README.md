@@ -612,3 +612,50 @@ The screenshot below shows the status filter working in the React MVP.
 The status filter is placed next to the search input because both controls are used to reduce the table results. This layout makes the filtering workflow simple and visible to the user.
 
 The filter includes an All statuses option so the user can easily return to the full dataset without reloading the page. The empty state also uses a clear filters button to help the user recover when no results match the selected search and filter combination.
+
+## 12. Interface Details Panel
+
+This stage added an interface details panel to the React MVP. The user can now select a fictional interface record from the table and view more detailed operational information about that interface.
+
+The details panel supports the main user workflow because a support user often needs to move from a high-level monitoring view into more specific information about a failed or warning interface.
+
+### 12.1 Implementation
+
+A reusable `InterfaceDetails` component was created and stored in:
+
+```text
+src/components/InterfaceDetails.jsx
+```
+
+The `InterfaceTable` component was updated to include a `View Details` action for each row. When the user selects a row, the selected interface record is stored in React state inside:
+
+```text
+src/App.jsx
+```
+
+The details panel displays the following information:
+
+| Field | Purpose |
+|---|---|
+| Interface name | Shows the selected fictional interface name |
+| Interface ID | Shows the selected fictional interface identifier |
+| Type | Shows the interface type |
+| Status | Shows the current health status |
+| Last Run | Shows the fictional last run timestamp |
+| Owner | Shows the fictional support owner or team |
+| Environment | Shows the mock environment label |
+| Error Message | Shows the fictional error message |
+| Suggested Action | Shows the suggested operational action |
+
+### 12.2 UI Evidence
+
+The screenshot below shows the details panel after selecting an interface from the table.
+
+![Interface details panel](docs/images/interface-details-panel.png)
+
+### 12.3 Design Decision
+
+The details panel is placed above the table so that the selected interface information is immediately visible after the user clicks `View Details`. This keeps the interaction simple and avoids navigating away from the dashboard.
+
+The panel also includes an empty state before selection. This helps the user understand what the panel is for and reduces confusion when no interface has been selected yet.
+

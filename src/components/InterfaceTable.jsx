@@ -1,4 +1,4 @@
-function InterfaceTable({ interfaces }) {
+function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) {
   return (
     <section className="table-section" aria-labelledby="interface-table-heading">
       <div className="section-header">
@@ -19,11 +19,15 @@ function InterfaceTable({ interfaces }) {
               <th scope="col">Status</th>
               <th scope="col">Last Run</th>
               <th scope="col">Owner</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
             {interfaces.map((item) => (
-              <tr key={item.id}>
+              <tr
+                key={item.id}
+                className={selectedInterfaceId === item.id ? 'selected-row' : ''}
+              >
                 <td>
                   <strong>{item.name}</strong>
                   <span className="interface-id">{item.id}</span>
@@ -36,6 +40,15 @@ function InterfaceTable({ interfaces }) {
                 </td>
                 <td>{item.lastRun}</td>
                 <td>{item.owner}</td>
+                <td>
+                  <button
+                    type="button"
+                    className="table-action"
+                    onClick={() => onSelectInterface(item)}
+                  >
+                    View Details
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
