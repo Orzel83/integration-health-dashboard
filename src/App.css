@@ -97,6 +97,78 @@ body {
   color: #b91c1c;
 }
 
+.controls-section {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #f9fafb;
+}
+
+.form-control {
+  max-width: 520px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.form-control input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.form-control input:focus {
+  outline: 3px solid #bfdbfe;
+  border-color: #2563eb;
+}
+
+.empty-state {
+  padding: 48px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.empty-state p {
+  max-width: 580px;
+  margin: 0 auto 24px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.empty-state button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.empty-state button:focus {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
 .table-section {
   border: 1px solid #e5e7eb;
   border-radius: 16px;
