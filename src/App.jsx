@@ -1,4 +1,5 @@
 import './App.css';
+import InterfaceTable from './components/InterfaceTable';
 import SummaryCard from './components/SummaryCard';
 import mockInterfaces from './data/mockInterfaces.json';
 import { getStatusSummary } from './utils/interfaceUtils';
@@ -41,6 +42,8 @@ function App() {
             status="failed"
           />
         </section>
+
+        <InterfaceTable interfaces={mockInterfaces} />
       </section>
     </main>
   );
