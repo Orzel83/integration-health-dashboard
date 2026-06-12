@@ -294,3 +294,49 @@ The placeholder page includes:
 At this stage, the project does not include live data, authentication, backend services or production integrations. This decision keeps the MVP small and avoids confidentiality or security risks.
 
 The application will use fictional mock data only. The next stage will add mock interface records that can be used to build and test the dashboard features.
+
+## 6. Mock Interface Data
+
+The dashboard MVP uses fictional mock data stored in a local JSON file. This data is used to simulate interface monitoring records without connecting the application to any real employer, client or production systems.
+
+Using mock data is an important design decision for this project. It allows the MVP to demonstrate dashboard functionality, filtering, searching and status display while avoiding confidentiality, security and data protection risks.
+
+### 6.1 Mock Data Location
+
+The mock data is stored in:
+
+```text
+src/data/mockInterfaces.json
+```
+
+### 6.2 Data Fields
+
+Each mock interface record contains the following fields:
+
+| Field | Purpose |
+|---|---|
+| id | Unique fictional interface identifier |
+| name | Fictional interface name |
+| type | Interface type, such as REST, SOAP, FILE or IDoc |
+| status | Current interface health status |
+| lastRun | Fictional last run timestamp |
+| owner | Fictional support owner or team |
+| environment | Mock environment label |
+| errorMessage | Error description for warning or failed records |
+| suggestedAction | Suggested support action |
+
+### 6.3 Status Values
+
+The MVP uses three status values:
+
+| Status | Meaning |
+|---|---|
+| Healthy | The interface is running normally |
+| Warning | The interface requires attention but has not fully failed |
+| Failed | The interface has failed and requires investigation |
+
+### 6.4 Data Safety
+
+No real employer, client or production information is used in the mock dataset. The interface names, errors, timestamps, owners and environments are fictional and created only for the purpose of this assessment project.
+
+This keeps the MVP suitable for public demonstration and avoids exposing confidential operational information.
