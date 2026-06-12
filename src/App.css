@@ -9,6 +9,12 @@ body {
   color: #111827;
 }
 
+button,
+input,
+select {
+  font: inherit;
+}
+
 .app {
   min-height: 100vh;
   padding: 40px;
@@ -38,7 +44,7 @@ body {
 
 .dashboard-header p {
   margin: 0;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 16px;
 }
 
@@ -69,7 +75,7 @@ body {
 .summary-card-label {
   display: block;
   margin-bottom: 18px;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -90,7 +96,7 @@ body {
 }
 
 .summary-card-warning .summary-card-value {
-  color: #b45309;
+  color: #92400e;
 }
 
 .summary-card-failed .summary-card-value {
@@ -101,7 +107,7 @@ body {
   display: flex;
   gap: 20px;
   align-items: flex-end;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   padding: 20px;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -126,7 +132,7 @@ body {
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #9ca3af;
   border-radius: 10px;
   background: #ffffff;
   color: #111827;
@@ -134,9 +140,18 @@ body {
 }
 
 .form-control input:focus,
-.form-control select:focus {
+.form-control select:focus,
+button:focus {
   outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
   border-color: #2563eb;
+}
+
+.results-count {
+  margin: 0 0 24px;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .details-panel {
@@ -158,7 +173,7 @@ body {
 
 .empty-details p {
   margin: 0;
-  color: #6b7280;
+  color: #4b5563;
   line-height: 1.6;
 }
 
@@ -177,25 +192,20 @@ body {
 
 .details-header p {
   margin: 0;
-  color: #6b7280;
+  color: #4b5563;
   font-weight: 700;
 }
 
 .details-header button {
   min-height: 42px;
   padding: 10px 16px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #9ca3af;
   border-radius: 10px;
   background: #ffffff;
   color: #374151;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-}
-
-.details-header button:focus {
-  outline: 3px solid #bfdbfe;
-  outline-offset: 2px;
 }
 
 .details-grid {
@@ -215,7 +225,7 @@ body {
 .details-item span {
   display: block;
   margin-bottom: 8px;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -269,7 +279,7 @@ body {
 
 .section-header p {
   margin: 0;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 15px;
 }
 
@@ -280,6 +290,15 @@ body {
 .interface-table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.interface-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .interface-table th,
@@ -315,7 +334,7 @@ body {
 
 .interface-id {
   display: block;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 13px;
 }
 
@@ -340,7 +359,7 @@ body {
 
 .status-warning {
   background: #fef3c7;
-  color: #b45309;
+  color: #92400e;
 }
 
 .status-failed {
@@ -359,11 +378,6 @@ body {
   cursor: pointer;
 }
 
-.table-action:focus {
-  outline: 3px solid #bfdbfe;
-  outline-offset: 2px;
-}
-
 .empty-state {
   padding: 48px 24px;
   border: 1px solid #e5e7eb;
@@ -380,7 +394,7 @@ body {
 .empty-state p {
   max-width: 580px;
   margin: 0 auto 24px;
-  color: #6b7280;
+  color: #4b5563;
   line-height: 1.6;
 }
 
@@ -394,11 +408,6 @@ body {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-}
-
-.empty-state button:focus {
-  outline: 3px solid #bfdbfe;
-  outline-offset: 2px;
 }
 
 @media (max-width: 900px) {
