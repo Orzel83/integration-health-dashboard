@@ -1,0 +1,134 @@
+[
+  {
+    "id": "INT-001",
+    "name": "Customer Records API",
+    "type": "REST",
+    "status": "Failed",
+    "lastRun": "2026-06-18 09:20",
+    "owner": "Integration Support",
+    "environment": "Production Mock",
+    "errorMessage": "Timeout from target service during request processing.",
+    "suggestedAction": "Check recent failed transactions and review retry queue."
+  },
+  {
+    "id": "INT-002",
+    "name": "Payment File Transfer",
+    "type": "FILE",
+    "status": "Warning",
+    "lastRun": "2026-06-18 08:55",
+    "owner": "Batch Operations",
+    "environment": "Production Mock",
+    "errorMessage": "Expected payment file has not arrived within the agreed time window.",
+    "suggestedAction": "Check source folder and confirm whether the upstream system has produced the file."
+  },
+  {
+    "id": "INT-003",
+    "name": "Tax Record Sync",
+    "type": "SOAP",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 09:10",
+    "owner": "Integration Support",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  },
+  {
+    "id": "INT-004",
+    "name": "Reference Data API",
+    "type": "REST",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 09:05",
+    "owner": "API Support",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  },
+  {
+    "id": "INT-005",
+    "name": "Document Archive Upload",
+    "type": "FILE",
+    "status": "Failed",
+    "lastRun": "2026-06-18 07:40",
+    "owner": "Document Services",
+    "environment": "Production Mock",
+    "errorMessage": "File could not be processed because the mock target folder was unavailable.",
+    "suggestedAction": "Review folder availability and retry the failed upload."
+  },
+  {
+    "id": "INT-006",
+    "name": "Notification Event Publisher",
+    "type": "REST",
+    "status": "Warning",
+    "lastRun": "2026-06-18 09:00",
+    "owner": "Event Support",
+    "environment": "Production Mock",
+    "errorMessage": "Response time is above the expected threshold.",
+    "suggestedAction": "Monitor response time and check whether recent traffic has increased."
+  },
+  {
+    "id": "INT-007",
+    "name": "Employee Data Replication",
+    "type": "IDoc",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 08:50",
+    "owner": "Integration Support",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  },
+  {
+    "id": "INT-008",
+    "name": "Case Management Update",
+    "type": "SOAP",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 08:48",
+    "owner": "Case Support",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  },
+  {
+    "id": "INT-009",
+    "name": "Outbound Report Transfer",
+    "type": "FILE",
+    "status": "Warning",
+    "lastRun": "2026-06-18 06:30",
+    "owner": "Reporting Support",
+    "environment": "Production Mock",
+    "errorMessage": "File processing completed later than the expected schedule.",
+    "suggestedAction": "Check whether downstream processing was affected by the delay."
+  },
+  {
+    "id": "INT-010",
+    "name": "Address Validation Service",
+    "type": "REST",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 09:18",
+    "owner": "API Support",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  },
+  {
+    "id": "INT-011",
+    "name": "Finance Posting Interface",
+    "type": "IDoc",
+    "status": "Failed",
+    "lastRun": "2026-06-18 08:15",
+    "owner": "Finance Integration",
+    "environment": "Production Mock",
+    "errorMessage": "Mock posting message failed validation due to missing mandatory field.",
+    "suggestedAction": "Review validation rules and correct the source message structure."
+  },
+  {
+    "id": "INT-012",
+    "name": "User Access Audit Feed",
+    "type": "FILE",
+    "status": "Healthy",
+    "lastRun": "2026-06-18 07:55",
+    "owner": "Security Operations",
+    "environment": "Production Mock",
+    "errorMessage": "",
+    "suggestedAction": "No action required."
+  }
+]
