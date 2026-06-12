@@ -1,6 +1,11 @@
 import './App.css';
+import SummaryCard from './components/SummaryCard';
+import mockInterfaces from './data/mockInterfaces.json';
+import { getStatusSummary } from './utils/interfaceUtils';
 
 function App() {
+  const summary = getStatusSummary(mockInterfaces);
+
   return (
     <main className="app">
       <section className="dashboard">
@@ -14,12 +19,27 @@ function App() {
           <span className="data-note">Mock data only</span>
         </header>
 
-        <section className="placeholder-card">
-          <h2>MVP setup complete</h2>
-          <p>
-            The React and Vite project structure has been created. Dashboard
-            components, mock data, tests and CI/CD will be added in later stages.
-          </p>
+        <section className="summary-grid" aria-label="Interface health summary">
+          <SummaryCard
+            label="Total Interfaces"
+            value={summary.total}
+            status="total"
+          />
+          <SummaryCard
+            label="Healthy"
+            value={summary.healthy}
+            status="healthy"
+          />
+          <SummaryCard
+            label="Warning"
+            value={summary.warning}
+            status="warning"
+          />
+          <SummaryCard
+            label="Failed"
+            value={summary.failed}
+            status="failed"
+          />
         </section>
       </section>
     </main>
