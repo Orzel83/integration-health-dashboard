@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import './App.css';
+import InterfaceDetails from './components/InterfaceDetails';
 import InterfaceTable from './components/InterfaceTable';
 import SummaryCard from './components/SummaryCard';
 import mockInterfaces from './data/mockInterfaces.json';
@@ -12,6 +13,7 @@ import {
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('All');
+  const [selectedInterface, setSelectedInterface] = useState(null);
 
   const filteredInterfaces = useMemo(() => {
     const searchResults = searchInterfaces(mockInterfaces, searchTerm);
@@ -23,6 +25,14 @@ function App() {
   function clearFilters() {
     setSearchTerm('');
     setSelectedStatus('All');
+  }
+
+  function handleSelectInterface(interfaceRecord) {
+    setSelectedInterface(interfaceRecord);
+  }
+
+  function clearSelectedInterface() {
+    setSelectedInterface(null);
   }
 
   return (
@@ -88,8 +98,17 @@ function App() {
           </div>
         </section>
 
+        <InterfaceDetails
+          selectedInterface={selectedInterface}
+          onClearSelection={clearSelectedInterface}
+        />
+
         {filteredInterfaces.length > 0 ? (
-          <InterfaceTable interfaces={filteredInterfaces} />
+          <InterfaceTable
+            interfaces={filteredInterfaces}
+            selectedInterfaceId={selectedInterface?.id}
+            onSelectInterface={handleSelectInterface}
+          />
         ) : (
           <section className="empty-state" aria-live="polite">
             <h2>No interfaces found</h2>
