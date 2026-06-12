@@ -398,3 +398,50 @@ The screenshots below show the TDD process used for the status summary logic. Th
 #### Passed Test Run
 
 ![Passed status summary test](docs/images/status-summary-test-passed.png)
+
+## 8. Dashboard Summary Cards
+
+This stage introduced the first visible dashboard feature in the React MVP. The application now imports the fictional mock interface data and uses the `getStatusSummary` utility function to calculate the number of total, healthy, warning and failed interfaces.
+
+The purpose of the summary cards is to give the support user a quick overview of the current interface health position before they review the detailed interface list.
+
+### 8.1 Implementation
+
+A reusable `SummaryCard` component was created and stored in:
+
+```text
+src/components/SummaryCard.jsx
+```
+
+The dashboard imports mock interface records from:
+
+```text
+src/data/mockInterfaces.json
+```
+
+The status counts are calculated using:
+
+```text
+src/utils/interfaceUtils.js
+```
+
+### 8.2 Summary Cards
+
+The dashboard displays four summary cards:
+
+| Card | Purpose |
+|---|---|
+| Total Interfaces | Shows the total number of mock interface records |
+| Healthy | Shows interfaces currently running normally |
+| Warning | Shows interfaces that require attention |
+| Failed | Shows interfaces that have failed and require investigation |
+
+### 8.3 UI Evidence
+
+The screenshot below shows the dashboard summary cards implemented in the React MVP.
+
+![Dashboard summary cards](docs/images/dashboard-summary-cards.png)
+
+### 8.4 Design Decision
+
+The summary cards are placed at the top of the dashboard because they provide the fastest way for the user to understand the overall monitoring position. This matches the UX prototype and supports the main user goal of quickly identifying whether there are failed or warning interfaces.
