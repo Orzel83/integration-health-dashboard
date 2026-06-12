@@ -546,3 +546,69 @@ The screenshot below shows the search input working in the React MVP.
 ### 10.5 Design Decision
 
 The search input is placed above the interface table because it controls which records are displayed. The search is case-insensitive to make the feature easier to use. An empty state was added so that the user understands why no records are displayed when the search term does not match any interface.
+
+## 11. Status Filtering and Tests
+
+This stage added status filtering to the Integration Health Dashboard MVP. The user can now filter the fictional interface records by health status, including Healthy, Warning and Failed. The user can also return to the full list by selecting All statuses.
+
+The status filter supports the main user goal because support users often need to focus quickly on failed or warning interfaces during daily checks or incident investigation.
+
+### 11.1 TDD Approach
+
+The filtering logic was developed with automated tests. The tests define the expected behaviour for filtering records by status before the filter is used in the user interface.
+
+The filtering tests cover the following scenarios:
+
+| Test Scenario | Expected Result |
+|---|---|
+| All selected | Returns all interface records |
+| Healthy selected | Returns only healthy records |
+| Warning selected | Returns only warning records |
+| Failed selected | Returns only failed records |
+| Unknown status selected | Returns an empty list |
+
+### 11.2 Implementation
+
+The filter logic is stored in:
+
+```text
+src/utils/interfaceUtils.js
+```
+
+The test file is stored in:
+
+```text
+src/tests/interfaceUtils.test.js
+```
+
+The dashboard uses a controlled React select field in:
+
+```text
+src/App.jsx
+```
+
+The search and status filter work together. The application first applies the search term and then applies the selected status filter to the search results.
+
+### 11.3 Test Evidence
+
+The screenshots below show the filter logic test before and after implementation.
+
+#### Failed Filter Test
+
+![Failed status filter test](docs/images/status-filter-test-failed.png)
+
+#### Passed Filter Test
+
+![Passed status filter test](docs/images/status-filter-test-passed.png)
+
+### 11.4 UI Evidence
+
+The screenshot below shows the status filter working in the React MVP.
+
+![Status filtering](docs/images/status-filtering.png)
+
+### 11.5 Design Decision
+
+The status filter is placed next to the search input because both controls are used to reduce the table results. This layout makes the filtering workflow simple and visible to the user.
+
+The filter includes an All statuses option so the user can easily return to the full dataset without reloading the page. The empty state also uses a clear filters button to help the user recover when no results match the selected search and filter combination.

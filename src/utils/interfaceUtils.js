@@ -44,3 +44,10 @@ export function searchInterfaces(interfaces, searchTerm) {
     );
   });
 }
+export function filterInterfacesByStatus(interfaces, selectedStatus) {
+  if (selectedStatus === 'All') {
+    return interfaces;
+  }
+
+  return interfaces.filter((item) => item.status === selectedStatus);
+}

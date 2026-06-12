@@ -3,17 +3,27 @@ import './App.css';
 import InterfaceTable from './components/InterfaceTable';
 import SummaryCard from './components/SummaryCard';
 import mockInterfaces from './data/mockInterfaces.json';
-import { getStatusSummary, searchInterfaces } from './utils/interfaceUtils';
+import {
+  filterInterfacesByStatus,
+  getStatusSummary,
+  searchInterfaces,
+} from './utils/interfaceUtils';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('All');
 
-  const filteredInterfaces = useMemo(
-    () => searchInterfaces(mockInterfaces, searchTerm),
-    [searchTerm]
-  );
+  const filteredInterfaces = useMemo(() => {
+    const searchResults = searchInterfaces(mockInterfaces, searchTerm);
+    return filterInterfacesByStatus(searchResults, selectedStatus);
+  }, [searchTerm, selectedStatus]);
 
   const summary = getStatusSummary(mockInterfaces);
+
+  function clearFilters() {
+    setSearchTerm('');
+    setSelectedStatus('All');
+  }
 
   return (
     <main className="app">
@@ -62,6 +72,20 @@ function App() {
               onChange={(event) => setSearchTerm(event.target.value)}
             />
           </div>
+
+          <div className="form-control">
+            <label htmlFor="status-filter">Status filter</label>
+            <select
+              id="status-filter"
+              value={selectedStatus}
+              onChange={(event) => setSelectedStatus(event.target.value)}
+            >
+              <option value="All">All statuses</option>
+              <option value="Healthy">Healthy</option>
+              <option value="Warning">Warning</option>
+              <option value="Failed">Failed</option>
+            </select>
+          </div>
         </section>
 
         {filteredInterfaces.length > 0 ? (
@@ -70,11 +94,11 @@ function App() {
           <section className="empty-state" aria-live="polite">
             <h2>No interfaces found</h2>
             <p>
-              No fictional interface records match the current search term. Try
-              changing the search value or clearing the search box.
+              No fictional interface records match the current search or filter.
+              Try changing the search value or clearing the selected filter.
             </p>
-            <button type="button" onClick={() => setSearchTerm('')}>
-              Clear Search
+            <button type="button" onClick={clearFilters}>
+              Clear Filters
             </button>
           </section>
         )}

@@ -1,5 +1,9 @@
 import { describe, expect, test } from 'vitest';
-import { getStatusSummary, searchInterfaces } from '../utils/interfaceUtils';
+import {
+  filterInterfacesByStatus,
+  getStatusSummary,
+  searchInterfaces,
+} from '../utils/interfaceUtils';
 
 describe('getStatusSummary', () => {
   test('returns zero counts when the interface list is empty', () => {
@@ -93,6 +97,52 @@ describe('searchInterfaces', () => {
     ];
 
     const result = searchInterfaces(interfaces, 'not-existing');
+
+    expect(result).toEqual([]);
+  });
+});
+
+describe('filterInterfacesByStatus', () => {
+  const interfaces = [
+    { id: 'INT-001', name: 'Customer Records API', status: 'Healthy' },
+    { id: 'INT-002', name: 'Payment File Transfer', status: 'Warning' },
+    { id: 'INT-003', name: 'Finance Posting Interface', status: 'Failed' },
+    { id: 'INT-004', name: 'Reference Data API', status: 'Healthy' },
+  ];
+
+  test('returns all interfaces when selected status is All', () => {
+    const result = filterInterfacesByStatus(interfaces, 'All');
+
+    expect(result).toEqual(interfaces);
+  });
+
+  test('returns healthy interfaces only', () => {
+    const result = filterInterfacesByStatus(interfaces, 'Healthy');
+
+    expect(result).toEqual([
+      { id: 'INT-001', name: 'Customer Records API', status: 'Healthy' },
+      { id: 'INT-004', name: 'Reference Data API', status: 'Healthy' },
+    ]);
+  });
+
+  test('returns warning interfaces only', () => {
+    const result = filterInterfacesByStatus(interfaces, 'Warning');
+
+    expect(result).toEqual([
+      { id: 'INT-002', name: 'Payment File Transfer', status: 'Warning' },
+    ]);
+  });
+
+  test('returns failed interfaces only', () => {
+    const result = filterInterfacesByStatus(interfaces, 'Failed');
+
+    expect(result).toEqual([
+      { id: 'INT-003', name: 'Finance Posting Interface', status: 'Failed' },
+    ]);
+  });
+
+  test('returns an empty list when selected status has no matches', () => {
+    const result = filterInterfacesByStatus(interfaces, 'Unknown');
 
     expect(result).toEqual([]);
   });
