@@ -98,6 +98,10 @@ function App() {
           </div>
         </section>
 
+        <p className="results-count" aria-live="polite">
+          Showing {filteredInterfaces.length} of {mockInterfaces.length} fictional interface records.
+        </p>
+
         <InterfaceDetails
           selectedInterface={selectedInterface}
           onClearSelection={clearSelectedInterface}

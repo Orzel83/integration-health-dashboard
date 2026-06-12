@@ -12,6 +12,10 @@ function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) 
 
       <div className="table-wrapper">
         <table className="interface-table">
+          <caption>
+            Interface monitoring records showing name, type, status, last run,
+            owner and details action.
+          </caption>
           <thead>
             <tr>
               <th scope="col">Interface Name</th>
@@ -45,6 +49,7 @@ function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) 
                     type="button"
                     className="table-action"
                     onClick={() => onSelectInterface(item)}
+                    aria-label={`View details for ${item.name}`}
                   >
                     View Details
                   </button>
