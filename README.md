@@ -659,3 +659,119 @@ The details panel is placed above the table so that the selected interface infor
 
 The panel also includes an empty state before selection. This helps the user understand what the panel is for and reduces confusion when no interface has been selected yet.
 
+## 13. Accessibility and Usability Improvements
+
+This stage focused on improving the accessibility and usability of the Integration Health Dashboard MVP. The aim was to make the interface clearer, easier to use and more suitable for basic keyboard and accessibility checks.
+
+### 13.1 Accessibility Improvements
+
+The following accessibility improvements were made:
+
+| Improvement | Purpose |
+|---|---|
+| Clear labels for controls | Search and status filter controls have visible labels |
+| Accessible table caption | The interface table includes a caption for screen reader context |
+| Button aria-labels | Table action buttons provide clearer context for selected records |
+| Visible focus styles | Keyboard users can see which control is currently focused |
+| Results count | The user can see how many records are displayed after search and filtering |
+| Live region | The results count updates using `aria-live` |
+
+### 13.2 Usability Improvements
+
+The following usability improvements were made:
+
+| Improvement | Purpose |
+|---|---|
+| Results count | Helps the user understand the effect of search and filtering |
+| Clear control layout | Search and status filter are grouped together above the table |
+| Empty state message | Helps the user recover when no records match the current criteria |
+| Clear button text | Actions such as View Details and Clear Filters are easy to understand |
+
+### 13.3 Manual Checks
+
+The MVP was checked manually for the following:
+
+| Check | Result |
+|---|---|
+| Search input has a visible label | Passed |
+| Status filter has a visible label | Passed |
+| Buttons have clear action text | Passed |
+| Keyboard tab navigation works across controls | Passed |
+| Focus outline is visible | Passed |
+| Empty state is understandable | Passed |
+| Table has a caption | Passed |
+
+### 13.4 UI Evidence
+
+The screenshot below shows the updated dashboard interface with the results count and improved controls.
+
+![Accessibility and usability improvements](docs/images/accessibility-usability-improvements.png)
+
+### 13.5 Lighthouse Evidence
+
+A basic Lighthouse accessibility check was completed using Chrome DevTools.
+
+![Lighthouse accessibility check](docs/images/lighthouse-accessibility-check.png)
+
+### 13.6 Reflection
+
+The improvements made in this stage are small but important. The dashboard is still a prototype, but the changes make it easier to use and more understandable. Adding labels, focus styles and a results count also supports users who navigate with a keyboard or need clearer feedback from the interface.
+
+This stage also helped confirm that accessibility should not be treated as something added only at the end. Even simple MVP features need to be designed and tested with usability and accessibility in mind.
+
+## 14. CI Pipeline with GitHub Actions
+
+This stage added a Continuous Integration pipeline using GitHub Actions. The purpose of the pipeline is to automatically check the quality of the project whenever code is pushed or a pull request is opened against the `main` branch.
+
+The CI pipeline supports the project workflow because it helps confirm that automated tests pass and that the React application can be built successfully before changes are merged.
+
+### 14.1 Workflow Location
+
+The GitHub Actions workflow is stored in:
+
+```text
+.github/workflows/ci.yml
+```
+
+### 14.2 Pipeline Triggers
+
+The workflow runs on:
+
+| Trigger | Purpose |
+|---|---|
+| Push to main | Checks changes added directly to the main branch |
+| Pull request to main | Checks changes before they are merged |
+
+### 14.3 Pipeline Steps
+
+The CI pipeline performs the following steps:
+
+| Step | Purpose |
+|---|---|
+| Checkout repository | Downloads the repository content into the runner |
+| Set up Node.js | Prepares the Node.js environment |
+| Install dependencies | Installs dependencies using `npm ci` |
+| Run automated tests | Runs the Vitest test suite |
+| Run production build | Confirms the Vite application can be built |
+
+### 14.4 CI Command Summary
+
+The workflow runs the following commands:
+
+```bash
+npm ci
+npm test -- --run
+npm run build
+```
+
+### 14.5 CI Evidence
+
+The screenshot below shows the GitHub Actions CI workflow running successfully.
+
+![GitHub Actions CI pipeline](docs/images/github-actions-ci-pipeline.png)
+
+### 14.6 Design Decision
+
+GitHub Actions was selected because the project is already managed in GitHub using issues, branches and pull requests. Keeping the CI pipeline in the same platform makes the workflow easier to manage and provides visible evidence that tests and builds are checked automatically.
+
+The pipeline is intentionally simple because this MVP is a small front-end prototype. However, it still demonstrates an important software engineering practice: changes should be checked automatically before being accepted into the main branch.
