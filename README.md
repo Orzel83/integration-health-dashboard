@@ -512,14 +512,80 @@ These limitations are acceptable for the MVP because the purpose of the project 
 
 ## 14. Evaluation and Reflection
 
-**This section is intentionally left shorter so there is enough space to complete Stage 19. Add the final Evaluation and Reflection here.**
+This section evaluates the Integration Health Dashboard MVP and reflects on the software engineering process used to design, build, test and deploy the prototype.
 
-Suggested points to cover:
+The project achieved its main aim of creating a small front-end dashboard that can display fictional interface monitoring records, support basic investigation workflows and demonstrate software engineering practices such as requirements definition, UX prototyping, Kanban planning, TDD, automated testing, CI and production deployment.
 
-- what went well during the project
-- what was difficult or went badly
-- how the project met the original requirements
-- limitations of the MVP
-- what could be improved in a future version
-- what you learned from planning, testing, CI/CD and deployment
+### 14.1 What Went Well
+
+One of the strongest parts of the project was that the MVP had a clear and realistic purpose from the beginning. The dashboard idea was closely linked to a real support environment, but the implementation avoided any real employer, client or production data. This made the project practical while still keeping it safe for assessment and public demonstration.
+
+The use of mock data worked well because it allowed the dashboard features to be developed without needing a backend or live system connection. The fictional dataset was enough to support summary cards, the interface table, search, status filtering and the details panel.
+
+The Kanban board and GitHub issues also helped keep the work organised. Splitting the work into smaller tickets made the project easier to manage and provided a clear record of how the MVP developed over time. Using labels, acceptance criteria, branches and pull requests made the workflow more controlled than simply committing everything directly to the main branch.
+
+The TDD approach worked well for the utility logic. Functions such as `getStatusSummary`, `searchInterfaces` and `filterInterfacesByStatus` were suitable for testing because they have clear input and output. This made it easier to prove that key dashboard logic behaved as expected before being connected to the UI.
+
+The CI pipeline was another successful part of the project. GitHub Actions helped automate the test and build process, which improved confidence that new changes did not break the application before being merged.
+
+### 14.2 What Was Difficult
+
+One difficulty was keeping the MVP small enough. It would have been easy to keep adding more features, such as live data, authentication, alert history or user roles. However, adding too much would have increased the risk of not completing the project properly. The scope had to stay focused on the core monitoring workflow.
+
+Another challenge was maintaining the README as the project grew. Because the assessment report is written as README documentation, each stage needed to be documented clearly. This became quite large over time, so the final cleanup stage was important to check structure, links, screenshots and consistency.
+
+The GitHub Pages deployment also required careful configuration. Because Vite applications need the correct `base` path when deployed to a repository subpath, the deployment could show a blank page if this setting was wrong. This was a useful reminder that deployment configuration is part of software engineering, not just a final technical step.
+
+Capturing evidence was also time-consuming. Screenshots for tests, UI states, CI, deployment and Kanban planning were useful, but they needed to be saved in the correct folder and linked correctly in the README. This helped the report, but it added extra process work.
+
+### 14.3 Limitations of the MVP
+
+The MVP has several limitations.
+
+| Limitation | Explanation |
+|---|---|
+| Static mock data | The dashboard does not connect to live monitoring tools or real APIs |
+| No backend | There is no server-side logic, database or API integration |
+| No authentication | The prototype does not support users, roles or permissions |
+| No real-time updates | Interface statuses only change if the mock data file is edited |
+| Limited UI testing | Automated tests focus on utility logic rather than full component rendering |
+| No incident workflow | The dashboard shows suggested actions but does not create or update incident records |
+| No persistent state | Search, filters and selected interface reset when the page refreshes |
+
+These limitations are acceptable for the MVP because the purpose of the project was to demonstrate a controlled software engineering process and a working front-end prototype, not to build a production monitoring platform.
+
+### 14.4 Lessons Learned
+
+A key lesson from this project is that defining the scope early helps prevent unnecessary complexity. The project became easier to manage once the MVP was limited to summary cards, search, filtering, table display and a details panel.
+
+Another lesson is that mock data can be useful when building early prototypes. It allows the user interface and logic to be tested without waiting for real integrations or exposing sensitive data. This is especially important in environments where production data and system details must be protected.
+
+The project also showed that TDD is easier to apply when logic is separated from the UI. By keeping functions such as status counting, searching and filtering in `interfaceUtils.js`, they could be tested independently from React components.
+
+The workflow also reinforced the value of small pull requests. Smaller changes were easier to review, document and connect to issues. This made the development history clearer and supported better traceability.
+
+### 14.5 Future Improvements
+
+If the MVP was developed further, the next improvements could include:
+
+| Improvement | Reason |
+|---|---|
+| Live API integration | To retrieve real monitoring data from an approved and secure source |
+| Authentication | To control who can access the dashboard |
+| Role-based access | To show different information depending on user responsibility |
+| Real-time refresh | To keep interface status information up to date |
+| Incident links | To connect failed interfaces to support tickets or incident records |
+| More detailed testing | To add React component tests and end-to-end tests |
+| Export function | To allow users to export filtered results |
+| Alert history | To show whether an interface has repeated failures over time |
+
+These improvements were not included in the MVP because they would increase complexity and could introduce security, confidentiality and data protection concerns.
+
+### 14.6 Final Reflection
+
+Overall, the project was successful as a small software engineering MVP. It produced a working dashboard, a UX prototype, a planned development workflow, automated tests, CI, deployment and user and technical documentation.
+
+The most valuable part of the project was not only building the interface, but showing the complete process behind it. The project demonstrates that even a small prototype benefits from requirements, planning, testing, accessibility checks, documentation and deployment.
+
+The final MVP is not a complete production monitoring tool, but it provides a realistic foundation for one. It shows how an integration support dashboard could help users identify failed or warning interfaces more quickly while keeping the prototype safe by using fictional data only.
 
