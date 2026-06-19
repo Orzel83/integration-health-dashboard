@@ -1,6 +1,13 @@
-function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) {
+function InterfaceTable({
+  interfaces,
+  selectedInterfaceId,
+  onSelectInterface,
+}) {
   return (
-    <section className="table-section" aria-labelledby="interface-table-heading">
+    <section
+      className="table-section"
+      aria-labelledby="interface-table-heading"
+    >
       <div className="section-header">
         <div>
           <h2 id="interface-table-heading">Interface Records</h2>
@@ -30,7 +37,9 @@ function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) 
             {interfaces.map((item) => (
               <tr
                 key={item.id}
-                className={selectedInterfaceId === item.id ? 'selected-row' : ''}
+                className={
+                  selectedInterfaceId === item.id ? "selected-row" : ""
+                }
               >
                 <td>
                   <strong>{item.name}</strong>
@@ -38,7 +47,9 @@ function InterfaceTable({ interfaces, selectedInterfaceId, onSelectInterface }) 
                 </td>
                 <td>{item.type}</td>
                 <td>
-                  <span className={`status-badge status-${item.status.toLowerCase()}`}>
+                  <span
+                    className={`status-badge status-${item.status.toLowerCase()}`}
+                  >
                     {item.status}
                   </span>
                 </td>

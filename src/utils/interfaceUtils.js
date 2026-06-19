@@ -3,15 +3,15 @@ export function getStatusSummary(interfaces) {
     (summary, item) => {
       const status = item.status;
 
-      if (status === 'Healthy') {
+      if (status === "Healthy") {
         summary.healthy += 1;
       }
 
-      if (status === 'Warning') {
+      if (status === "Warning") {
         summary.warning += 1;
       }
 
-      if (status === 'Failed') {
+      if (status === "Failed") {
         summary.failed += 1;
       }
 
@@ -24,7 +24,7 @@ export function getStatusSummary(interfaces) {
       healthy: 0,
       warning: 0,
       failed: 0,
-    }
+    },
   );
 }
 
@@ -45,7 +45,7 @@ export function searchInterfaces(interfaces, searchTerm) {
   });
 }
 export function filterInterfacesByStatus(interfaces, selectedStatus) {
-  if (selectedStatus === 'All') {
+  if (selectedStatus === "All") {
     return interfaces;
   }
 

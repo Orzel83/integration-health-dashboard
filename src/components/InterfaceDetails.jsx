@@ -1,7 +1,10 @@
 function InterfaceDetails({ selectedInterface, onClearSelection }) {
   if (!selectedInterface) {
     return (
-      <section className="details-panel empty-details" aria-labelledby="details-heading">
+      <section
+        className="details-panel empty-details"
+        aria-labelledby="details-heading"
+      >
         <h2 id="details-heading">Interface Details</h2>
         <p>
           Select an interface from the table to view more information about its
@@ -54,7 +57,8 @@ function InterfaceDetails({ selectedInterface, onClearSelection }) {
       <div className="details-message">
         <h3>Error Message</h3>
         <p>
-          {selectedInterface.errorMessage || 'No current error message for this interface.'}
+          {selectedInterface.errorMessage ||
+            "No current error message for this interface."}
         </p>
       </div>
 
