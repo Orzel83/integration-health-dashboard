@@ -1194,3 +1194,62 @@ The MVP has the following technical limitations:
 | Limited test coverage | Tests focus on utility logic rather than full UI rendering |
 
 These limitations are acceptable for the MVP because the purpose is to demonstrate the software engineering process, UI prototype, testing, CI/CD and documentation.
+
+## 18. Kanban Board Evidence and Ticket Review
+
+This stage provides evidence that the Integration Health Dashboard MVP was planned and tracked using a Kanban workflow in GitHub Projects.
+
+The Kanban board was used to organise project work into clear stages, track progress and support incremental delivery through issues, branches and pull requests.
+
+### 18.1 Kanban Board Evidence
+
+The screenshot below shows the GitHub Projects Kanban board used to plan and track the MVP.
+
+![Kanban board](docs/images/kanban-board.png)
+
+### 18.2 Kanban Workflow
+
+The project used the following workflow columns:
+
+| Column | Purpose |
+|---|---|
+| Backlog | Tasks identified for the MVP but not ready to start |
+| To Do | Tasks ready to be worked on |
+| In Progress | Tasks currently being implemented |
+| In Review | Tasks linked to pull requests or waiting for review |
+| Done | Completed tasks |
+
+### 18.3 Ticketing Approach
+
+Each major project activity was represented as a GitHub issue. This helped keep the work traceable and made it easier to connect planning, implementation and documentation.
+
+The issues were used to define:
+
+| Issue Section | Purpose |
+|---|---|
+| Description | Explains the purpose of the task |
+| Tasks | Lists the work required |
+| Acceptance Criteria | Defines what must be true for the task to be complete |
+| Labels | Classifies the type of work, such as feature, testing or documentation |
+| Milestone | Links the task to the MVP delivery |
+
+### 18.4 Ticket Review
+
+The project tickets were reviewed to confirm that the main issues included labels and acceptance criteria.
+
+| Ticket Area | Label Examples | Acceptance Criteria Included |
+|---|---|---|
+| Project setup | setup, feature | Yes |
+| Mock data | data, feature | Yes |
+| TDD and tests | testing, tdd | Yes |
+| Dashboard UI features | feature | Yes |
+| Accessibility and UX | accessibility, ux | Yes |
+| CI pipeline | ci-cd, testing | Yes |
+| Deployment | deployment, ci-cd | Yes |
+| Documentation | documentation | Yes |
+
+### 18.5 Planning Reflection
+
+Using Kanban helped keep the MVP controlled and visible. It also made it easier to show how the project developed gradually rather than being completed as one large change.
+
+The use of labels and acceptance criteria improved the quality of the workflow because each ticket had a clear purpose and a clear definition of completion.
