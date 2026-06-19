@@ -963,3 +963,234 @@ A typical user workflow is:
 The dashboard uses fictional data only. It does not show real system logs, endpoint URLs, production records, client information or employer data.
 
 This makes the MVP safe for demonstration and assessment purposes.
+
+## 17. Technical Documentation
+
+This section explains how the Integration Health Dashboard MVP is structured, installed, tested, built and deployed. It is intended for a developer or technical reviewer who wants to understand how the project works.
+
+The application is a front-end React MVP built with Vite. It uses fictional mock data only and does not connect to any real employer, client or production systems.
+
+### 17.1 Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React | Builds the user interface using reusable components |
+| Vite | Provides the development server and production build process |
+| JavaScript | Implements application logic |
+| CSS | Styles the dashboard interface |
+| JSON | Stores fictional mock interface records |
+| Vitest | Runs automated tests for utility logic |
+| GitHub | Hosts source code, issues, pull requests and project planning |
+| GitHub Actions | Runs the CI pipeline |
+| GitHub Pages | Hosts the production deployment |
+
+### 17.2 Project Structure
+
+The main project structure is:
+
+```text
+integration-health-dashboard/
+  .github/
+    workflows/
+      ci.yml
+  docs/
+    images/
+  src/
+    components/
+      InterfaceDetails.jsx
+      InterfaceTable.jsx
+      SummaryCard.jsx
+    data/
+      mockInterfaces.json
+    tests/
+      interfaceUtils.test.js
+    utils/
+      interfaceUtils.js
+    App.css
+    App.jsx
+    index.css
+    main.jsx
+  package.json
+  vite.config.js
+  README.md
+```
+
+### 17.3 Key Source Files
+
+| File | Purpose |
+|---|---|
+| `src/App.jsx` | Main application component and state management |
+| `src/App.css` | Main styling for the dashboard |
+| `src/components/SummaryCard.jsx` | Reusable component for dashboard summary cards |
+| `src/components/InterfaceTable.jsx` | Displays the fictional interface records in a table |
+| `src/components/InterfaceDetails.jsx` | Displays details for the selected interface |
+| `src/data/mockInterfaces.json` | Stores fictional mock interface monitoring data |
+| `src/utils/interfaceUtils.js` | Contains utility logic for summary counts, search and status filtering |
+| `src/tests/interfaceUtils.test.js` | Contains automated tests for utility functions |
+| `.github/workflows/ci.yml` | Defines the GitHub Actions CI pipeline |
+| `vite.config.js` | Contains Vite configuration, including GitHub Pages base path |
+
+### 17.4 Local Setup
+
+To run the project locally, clone the repository and install dependencies.
+
+```bash
+git clone https://github.com/Orzel83/integration-health-dashboard
+cd integration-health-dashboard
+npm install
+```
+
+Replace `https://github.com/Orzel83/integration-health-dashboard` with the actual GitHub repository URL.
+
+### 17.5 Running the Development Server
+
+Start the local development server with:
+
+```bash
+npm run dev
+```
+
+Vite will provide a local URL, usually:
+
+```text
+http://localhost:5173/
+```
+
+Open this URL in a browser to view the dashboard locally.
+
+### 17.6 Running Automated Tests
+
+The project uses Vitest for automated testing.
+
+To run tests locally:
+
+```bash
+npm test
+```
+
+To run tests once without watch mode, use:
+
+```bash
+npm test -- --run
+```
+
+The automated tests currently cover:
+
+| Function | Test Coverage |
+|---|---|
+| `getStatusSummary` | Empty list, mixed statuses, unknown statuses |
+| `searchInterfaces` | Empty search, matching search, case-insensitive search, no match |
+| `filterInterfacesByStatus` | All, Healthy, Warning, Failed and unknown status |
+
+### 17.7 Production Build
+
+To create a production build, run:
+
+```bash
+npm run build
+```
+
+This creates a `dist` folder containing the built static application.
+
+The `dist` folder is not intended to be edited manually.
+
+### 17.8 Previewing the Production Build
+
+After building the project, the production build can be previewed locally with:
+
+```bash
+npm run preview
+```
+
+This helps confirm that the production build works before deployment.
+
+### 17.9 CI Pipeline
+
+The project uses GitHub Actions for continuous integration.
+
+The workflow file is stored in:
+
+```text
+.github/workflows/ci.yml
+```
+
+The CI pipeline runs automatically when:
+
+| Trigger | Description |
+|---|---|
+| Push to `main` | Checks changes added to the main branch |
+| Pull request to `main` | Checks changes before they are merged |
+
+The CI pipeline performs:
+
+```bash
+npm ci
+npm test -- --run
+npm run build
+```
+
+This means the project dependencies are installed cleanly, automated tests are run, and the production build is checked.
+
+### 17.10 Deployment
+
+The project is deployed to GitHub Pages.
+
+The deployment uses:
+
+| Item | Value |
+|---|---|
+| Deployment package | `gh-pages` |
+| Build output folder | `dist` |
+| Deployment branch | `gh-pages` |
+| Production platform | GitHub Pages |
+
+Deployment can be run with:
+
+```bash
+npm run deploy
+```
+
+The `predeploy` script runs the production build before deployment. The `deploy` script publishes the `dist` folder to the `gh-pages` branch.
+
+### 17.11 Configuration Notes
+
+The Vite configuration file includes a `base` value for GitHub Pages deployment.
+
+Example:
+
+```javascript
+base: '/integration-health-dashboard/'
+```
+
+This value must match the repository name. If the repository name changes, the base path must also be updated.
+
+### 17.12 Data and Security Notes
+
+The MVP uses fictional mock data only.
+
+The project does not include:
+
+| Not Included | Reason |
+|---|---|
+| Real production logs | Avoids confidentiality risk |
+| Real endpoint URLs | Avoids exposing system details |
+| Real client data | Avoids data protection issues |
+| Authentication | Out of scope for the MVP |
+| Backend services | Out of scope for the MVP |
+| Live monitoring integration | Out of scope for the MVP |
+
+This design keeps the MVP safe for demonstration, assessment and public repository use.
+
+### 17.13 Known Technical Limitations
+
+The MVP has the following technical limitations:
+
+| Limitation | Explanation |
+|---|---|
+| Static mock data | Data does not update in real time |
+| No backend | The application cannot retrieve live monitoring data |
+| No user authentication | All users see the same prototype view |
+| No persistent user actions | Selected interface and filters reset after page refresh |
+| Limited test coverage | Tests focus on utility logic rather than full UI rendering |
+
+These limitations are acceptable for the MVP because the purpose is to demonstrate the software engineering process, UI prototype, testing, CI/CD and documentation.
