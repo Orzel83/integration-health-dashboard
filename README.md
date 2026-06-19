@@ -775,3 +775,191 @@ The screenshot below shows the GitHub Actions CI workflow running successfully.
 GitHub Actions was selected because the project is already managed in GitHub using issues, branches and pull requests. Keeping the CI pipeline in the same platform makes the workflow easier to manage and provides visible evidence that tests and builds are checked automatically.
 
 The pipeline is intentionally simple because this MVP is a small front-end prototype. However, it still demonstrates an important software engineering practice: changes should be checked automatically before being accepted into the main branch.
+
+## 15. Production Deployment
+
+This stage deployed the Integration Health Dashboard MVP to a production environment using GitHub Pages.
+
+The purpose of the deployment is to make the MVP accessible through a public URL and to demonstrate that the project can be built and released outside the local development environment.
+
+### 15.1 Deployment Platform
+
+The MVP was deployed using GitHub Pages.
+
+GitHub Pages was selected because the project is already hosted in GitHub and the MVP is a static front-end React application built with Vite.
+
+### 15.2 Deployment Configuration
+
+The deployment uses the following configuration:
+
+| Item | Configuration |
+|---|---|
+| Build tool | Vite |
+| Deployment package | gh-pages |
+| Build output folder | dist |
+| Deployment branch | gh-pages |
+| Production environment | GitHub Pages |
+
+### 15.3 Deployment Scripts
+
+The following scripts were added to `package.json`:
+
+```bash
+npm run build
+npm run deploy
+```
+
+The `predeploy` script runs the production build before deployment. The `deploy` script publishes the `dist` folder to GitHub Pages.
+
+### 15.4 Production URL
+
+Production deployment link:
+
+```text
+https://orzel83.github.io/integration-health-dashboard/
+```
+
+### 15.5 Deployment Evidence
+
+The screenshot below shows the MVP running in the production environment.
+
+![Production deployment](docs/images/production-deployment.png)
+
+### 15.6 Deployment Decision
+
+GitHub Pages was suitable for this MVP because the application does not require a backend, database or authentication. The deployment is intentionally simple, but it still demonstrates that the application can be built and released to a production environment.
+
+This also supports the assessment requirement to include a CI/CD pipeline with at least one production environment.
+
+## 16. User Documentation
+
+This section explains how a user can access and use the Integration Health Dashboard MVP. The dashboard is designed for a support user who needs to review fictional interface health records quickly and identify records that may require attention.
+
+The MVP uses mock data only. It does not connect to any real employer, client or production systems.
+
+### 16.1 Accessing the Dashboard
+
+The dashboard can be accessed through the production deployment link:
+
+```text
+https://orzel83.github.io/integration-health-dashboard/
+```
+
+The application can also be run locally by a developer, but normal users should use the deployed version.
+
+### 16.2 Dashboard Overview
+
+When the user opens the dashboard, the main page shows:
+
+| Area | Purpose |
+|---|---|
+| Summary cards | Gives a quick overview of interface health |
+| Search input | Allows the user to search for an interface by name |
+| Status filter | Allows the user to filter records by status |
+| Results count | Shows how many records are currently displayed |
+| Details panel | Shows more information about a selected interface |
+| Interface table | Lists the fictional interface monitoring records |
+
+### 16.3 Summary Cards
+
+The summary cards are displayed at the top of the dashboard.
+
+| Card | Meaning |
+|---|---|
+| Total Interfaces | Total number of fictional interface records |
+| Healthy | Interfaces currently shown as working normally |
+| Warning | Interfaces that may require attention |
+| Failed | Interfaces that have failed and require investigation |
+
+The summary cards help the user understand the overall interface health position before reviewing the detailed table.
+
+### 16.4 Searching for an Interface
+
+The user can search for an interface by typing into the `Search interface` field.
+
+Example:
+
+```text
+Payment
+```
+
+The table will update and show only interface records where the name matches the search term.
+
+The search is case-insensitive, so searching for:
+
+```text
+finance
+```
+
+will still find:
+
+```text
+Finance Posting Interface
+```
+
+### 16.5 Filtering by Status
+
+The user can use the `Status filter` dropdown to filter records by health status.
+
+Available options are:
+
+| Option | Result |
+|---|---|
+| All statuses | Shows all records |
+| Healthy | Shows only healthy records |
+| Warning | Shows only warning records |
+| Failed | Shows only failed records |
+
+The status filter can be used together with the search field.
+
+### 16.6 Viewing Interface Details
+
+Each row in the interface table includes a `View Details` button.
+
+When the user clicks `View Details`, the details panel updates and shows more information about the selected interface, including:
+
+| Field | Description |
+|---|---|
+| Interface name | Name of the selected fictional interface |
+| Interface ID | Fictional identifier |
+| Type | Interface type, such as REST, SOAP, FILE or IDoc |
+| Status | Current fictional health status |
+| Last Run | Fictional last run timestamp |
+| Owner | Fictional support owner |
+| Environment | Mock environment label |
+| Error Message | Fictional error message |
+| Suggested Action | Suggested support action |
+
+The user can clear the selected interface by clicking `Clear Selection`.
+
+### 16.7 Empty State
+
+If the search and filter combination does not match any records, the dashboard displays an empty state message.
+
+The empty state explains that no records were found and gives the user a way to clear the selected criteria.
+
+The user can click:
+
+```text
+Clear Filters
+```
+
+This resets the search field and status filter.
+
+### 16.8 Example User Workflow
+
+A typical user workflow is:
+
+1. Open the dashboard.
+2. Review the summary cards.
+3. Use the status filter to show only failed records.
+4. Use search to find a specific interface if needed.
+5. Click `View Details` on a record.
+6. Review the error message and suggested action.
+7. Clear the selection or filters when finished.
+
+### 16.9 User Data and Safety
+
+The dashboard uses fictional data only. It does not show real system logs, endpoint URLs, production records, client information or employer data.
+
+This makes the MVP safe for demonstration and assessment purposes.
