@@ -1,18 +1,18 @@
-import { useMemo, useState } from 'react';
-import './App.css';
-import InterfaceDetails from './components/InterfaceDetails';
-import InterfaceTable from './components/InterfaceTable';
-import SummaryCard from './components/SummaryCard';
-import mockInterfaces from './data/mockInterfaces.json';
+import { useMemo, useState } from "react";
+import "./App.css";
+import InterfaceDetails from "./components/InterfaceDetails";
+import InterfaceTable from "./components/InterfaceTable";
+import SummaryCard from "./components/SummaryCard";
+import mockInterfaces from "./data/mockInterfaces.json";
 import {
   filterInterfacesByStatus,
   getStatusSummary,
   searchInterfaces,
-} from './utils/interfaceUtils';
+} from "./utils/interfaceUtils";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('All');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("All");
   const [selectedInterface, setSelectedInterface] = useState(null);
 
   const filteredInterfaces = useMemo(() => {
@@ -23,8 +23,8 @@ function App() {
   const summary = getStatusSummary(mockInterfaces);
 
   function clearFilters() {
-    setSearchTerm('');
-    setSelectedStatus('All');
+    setSearchTerm("");
+    setSelectedStatus("All");
   }
 
   function handleSelectInterface(interfaceRecord) {
@@ -42,7 +42,8 @@ function App() {
           <div>
             <h1>Integration Health Dashboard</h1>
             <p>
-              A prototype dashboard for monitoring fictional interface health records.
+              A prototype dashboard for monitoring fictional interface health
+              records.
             </p>
           </div>
           <span className="data-note">Mock data only</span>
@@ -64,11 +65,7 @@ function App() {
             value={summary.warning}
             status="warning"
           />
-          <SummaryCard
-            label="Failed"
-            value={summary.failed}
-            status="failed"
-          />
+          <SummaryCard label="Failed" value={summary.failed} status="failed" />
         </section>
 
         <section className="controls-section" aria-label="Dashboard controls">
@@ -99,7 +96,8 @@ function App() {
         </section>
 
         <p className="results-count" aria-live="polite">
-          Showing {filteredInterfaces.length} of {mockInterfaces.length} fictional interface records.
+          Showing {filteredInterfaces.length} of {mockInterfaces.length}{" "}
+          fictional interface records.
         </p>
 
         <InterfaceDetails

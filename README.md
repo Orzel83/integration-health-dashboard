@@ -39,27 +39,27 @@ The requirements were defined from the perspective of a support user who needs t
 
 ### Functional requirements
 
-| ID | Requirement | Priority |
-|---|---|---|
-| FR1 | Show summary cards for total, healthy, warning and failed interfaces | Must have |
-| FR2 | Show a table of mock interface records | Must have |
-| FR3 | Search interfaces by name | Must have |
-| FR4 | Filter interfaces by status | Must have |
-| FR5 | Select an interface and view details | Must have |
-| FR6 | Show an empty state when no records match | Should have |
-| FR7 | Clear search, filter and selected interface | Should have |
+| ID  | Requirement                                                          | Priority    |
+| --- | -------------------------------------------------------------------- | ----------- |
+| FR1 | Show summary cards for total, healthy, warning and failed interfaces | Must have   |
+| FR2 | Show a table of mock interface records                               | Must have   |
+| FR3 | Search interfaces by name                                            | Must have   |
+| FR4 | Filter interfaces by status                                          | Must have   |
+| FR5 | Select an interface and view details                                 | Must have   |
+| FR6 | Show an empty state when no records match                            | Should have |
+| FR7 | Clear search, filter and selected interface                          | Should have |
 
 ### Non-functional requirements
 
-| ID | Requirement | Priority |
-|---|---|---|
-| NFR1 | The dashboard should be simple, readable and easy to understand | Must have |
-| NFR2 | Controls should have clear labels and support keyboard use | Must have |
-| NFR3 | The project must use fictional data only | Must have |
-| NFR4 | Code should be organised into reusable components and utility functions | Must have |
-| NFR5 | Core logic should be covered by automated tests | Must have |
-| NFR6 | The application should be deployable to a production environment | Must have |
-| NFR7 | The MVP should load quickly with the small mock dataset | Should have |
+| ID   | Requirement                                                             | Priority    |
+| ---- | ----------------------------------------------------------------------- | ----------- |
+| NFR1 | The dashboard should be simple, readable and easy to understand         | Must have   |
+| NFR2 | Controls should have clear labels and support keyboard use              | Must have   |
+| NFR3 | The project must use fictional data only                                | Must have   |
+| NFR4 | Code should be organised into reusable components and utility functions | Must have   |
+| NFR5 | Core logic should be covered by automated tests                         | Must have   |
+| NFR6 | The application should be deployable to a production environment        | Must have   |
+| NFR7 | The MVP should load quickly with the small mock dataset                 | Should have |
 
 ### Assumptions
 
@@ -69,8 +69,6 @@ The application uses local mock JSON data only. It is designed for assessment, d
 
 The project must remain small enough to complete within the available timeframe. It must include a user interface, documentation, automated testing and evidence of a CI/CD workflow. It must not include real client information, real interface names, endpoint URLs, production logs or other confidential data.
 
-
-
 ### Acceptance criteria
 
 The MVP is considered complete when the user can view the dashboard summary, review the interface table, search by interface name, filter by status and open the details panel for a selected record. The project must also use fictional data only, include automated tests for the core logic, run through a CI pipeline and be available through a production deployment.
@@ -79,13 +77,13 @@ These acceptance criteria were useful because they kept the project focused. The
 
 ### Risks and mitigation
 
-| Risk | Impact | Mitigation |
-|---|---|---|
-| Scope becomes too large | The MVP may not be completed on time | Limit the first version to summary, table, search, filter and details |
-| Sensitive information is used | Confidentiality or security risk | Use fictional mock data only |
-| Testing is added too late | TDD evidence may be weak | Write tests for utility functions during implementation |
-| Deployment issues occur | Production evidence may be delayed | Use a simple GitHub Pages deployment |
-| UI becomes difficult to use | User goal may not be met | Keep the layout simple and add basic accessibility checks |
+| Risk                          | Impact                               | Mitigation                                                            |
+| ----------------------------- | ------------------------------------ | --------------------------------------------------------------------- |
+| Scope becomes too large       | The MVP may not be completed on time | Limit the first version to summary, table, search, filter and details |
+| Sensitive information is used | Confidentiality or security risk     | Use fictional mock data only                                          |
+| Testing is added too late     | TDD evidence may be weak             | Write tests for utility functions during implementation               |
+| Deployment issues occur       | Production evidence may be delayed   | Use a simple GitHub Pages deployment                                  |
+| UI becomes difficult to use   | User goal may not be met             | Keep the layout simple and add basic accessibility checks             |
 
 ## 3. Planning and Kanban
 
@@ -93,13 +91,13 @@ The project was managed using a Kanban workflow in GitHub Projects. Kanban was s
 
 ### Kanban workflow
 
-| Column | Purpose |
-|---|---|
-| Backlog | Tasks identified for the MVP but not ready to start |
-| To Do | Tasks ready for development |
-| In Progress | Work currently being completed |
-| In Review | Work linked to a pull request or waiting for review |
-| Done | Completed tasks |
+| Column      | Purpose                                             |
+| ----------- | --------------------------------------------------- |
+| Backlog     | Tasks identified for the MVP but not ready to start |
+| To Do       | Tasks ready for development                         |
+| In Progress | Work currently being completed                      |
+| In Review   | Work linked to a pull request or waiting for review |
+| Done        | Completed tasks                                     |
 
 The main milestone was **MVP v1.0**. This milestone covered the first working version of the dashboard, including mock data, core UI features, automated tests, CI/CD, deployment and documentation.
 
@@ -138,22 +136,20 @@ The development process followed these steps:
 
 This workflow helped show that the MVP was developed incrementally rather than as one single large change.
 
-
-
 ### Ticket review
 
 The project tickets were reviewed to check that the main tasks had both labels and acceptance criteria. This was included because the assessment requires evidence that project work was planned and tracked properly. Labels made the type of work visible, while acceptance criteria explained what had to be true before a task could be treated as complete.
 
-| Ticket area | Example labels | Acceptance criteria included |
-|---|---|---|
-| Project setup | setup, feature | Yes |
-| Mock data | data, feature | Yes |
-| TDD and tests | testing, tdd | Yes |
-| Dashboard features | feature | Yes |
-| Accessibility and UX | accessibility, ux | Yes |
-| CI pipeline | ci-cd, testing | Yes |
-| Deployment | deployment, ci-cd | Yes |
-| Documentation | documentation | Yes |
+| Ticket area          | Example labels    | Acceptance criteria included |
+| -------------------- | ----------------- | ---------------------------- |
+| Project setup        | setup, feature    | Yes                          |
+| Mock data            | data, feature     | Yes                          |
+| TDD and tests        | testing, tdd      | Yes                          |
+| Dashboard features   | feature           | Yes                          |
+| Accessibility and UX | accessibility, ux | Yes                          |
+| CI pipeline          | ci-cd, testing    | Yes                          |
+| Deployment           | deployment, ci-cd | Yes                          |
+| Documentation        | documentation     | Yes                          |
 
 This gave the project better traceability because the final dashboard features can be linked back to planned work items.
 
@@ -180,11 +176,11 @@ The main user goal is to understand the current interface health position, find 
 
 ### Prototype screens
 
-| Screen | Purpose |
-|---|---|
-| Dashboard Overview | Shows summary cards, search, filter and table |
-| Interface Details | Shows more information about a selected interface |
-| Empty State | Shows a message when no records match |
+| Screen             | Purpose                                           |
+| ------------------ | ------------------------------------------------- |
+| Dashboard Overview | Shows summary cards, search, filter and table     |
+| Interface Details  | Shows more information about a selected interface |
+| Empty State        | Shows a message when no records match             |
 
 Figma prototype:
 
@@ -212,17 +208,17 @@ The project was built as a React application using Vite. React was selected beca
 
 ### Technology stack
 
-| Technology | Purpose |
-|---|---|
-| React | Builds the user interface |
-| Vite | Provides development server and production build |
-| JavaScript | Implements application logic |
-| CSS | Styles the dashboard |
-| JSON | Stores fictional mock data |
-| Vitest | Runs automated tests |
-| GitHub | Hosts source code, issues and pull requests |
-| GitHub Actions | Runs the CI pipeline |
-| GitHub Pages | Hosts the production deployment |
+| Technology     | Purpose                                          |
+| -------------- | ------------------------------------------------ |
+| React          | Builds the user interface                        |
+| Vite           | Provides development server and production build |
+| JavaScript     | Implements application logic                     |
+| CSS            | Styles the dashboard                             |
+| JSON           | Stores fictional mock data                       |
+| Vitest         | Runs automated tests                             |
+| GitHub         | Hosts source code, issues and pull requests      |
+| GitHub Actions | Runs the CI pipeline                             |
+| GitHub Pages   | Hosts the production deployment                  |
 
 ### Project structure
 
@@ -259,8 +255,6 @@ src/data/mockInterfaces.json
 ```
 
 Each record contains a fictional interface ID, name, type, status, last run time, owner, environment, error message and suggested action. The use of mock data was a key security and confidentiality decision. It allowed the dashboard to demonstrate realistic behaviour without exposing real operational details.
-
-
 
 ### Component approach
 
@@ -304,8 +298,6 @@ The user can click **View Details** to show more information about a selected in
 
 If no records match the search and filter, the dashboard displays a clear empty state message. A clear filters action helps the user recover without needing to refresh the page.
 
-
-
 ### Data safety decision
 
 A key design decision was to avoid real operational examples. Even though the project is based on a realistic integration support scenario, the records, owners, environments, error messages and suggested actions are fictional. This reduces confidentiality risk and makes the repository suitable for review.
@@ -316,14 +308,14 @@ In a workplace version, access control and data protection would need to be cons
 
 The MVP includes basic accessibility and usability improvements. These are small changes, but they make the dashboard clearer and easier to use.
 
-| Improvement | Purpose |
-|---|---|
-| Visible labels | Makes search and filter controls clear |
-| Table caption | Gives context for the interface table |
-| Keyboard focus styles | Helps keyboard users see the active control |
-| Results count | Shows how many records are displayed |
-| `aria-live` region | Announces result count updates |
-| Clear filter button | Helps the user recover from no-result searches |
+| Improvement           | Purpose                                        |
+| --------------------- | ---------------------------------------------- |
+| Visible labels        | Makes search and filter controls clear         |
+| Table caption         | Gives context for the interface table          |
+| Keyboard focus styles | Helps keyboard users see the active control    |
+| Results count         | Shows how many records are displayed           |
+| `aria-live` region    | Announces result count updates                 |
+| Clear filter button   | Helps the user recover from no-result searches |
 
 Manual checks confirmed that the search input had a visible label, the status filter had a visible label, keyboard navigation worked, focus styles were clear and the empty state was understandable.
 
@@ -341,11 +333,11 @@ A small Test Driven Development approach was used for the utility functions. Exp
 
 ### Tested functions
 
-| Function | Test coverage |
-|---|---|
-| `getStatusSummary` | Empty list, mixed statuses and unknown statuses |
-| `searchInterfaces` | Empty search, matching search, case-insensitive search and no match |
-| `filterInterfacesByStatus` | All, Healthy, Warning, Failed and unknown status |
+| Function                   | Test coverage                                                       |
+| -------------------------- | ------------------------------------------------------------------- |
+| `getStatusSummary`         | Empty list, mixed statuses and unknown statuses                     |
+| `searchInterfaces`         | Empty search, matching search, case-insensitive search and no match |
+| `filterInterfacesByStatus` | All, Healthy, Warning, Failed and unknown status                    |
 
 ### Running tests
 
@@ -409,13 +401,13 @@ GitHub Pages was suitable because the MVP is a static front-end application and 
 
 The deployment uses:
 
-| Item | Value |
-|---|---|
-| Build tool | Vite |
-| Deployment package | gh-pages |
-| Build output | dist |
-| Deployment branch | gh-pages |
-| Platform | GitHub Pages |
+| Item               | Value        |
+| ------------------ | ------------ |
+| Build tool         | Vite         |
+| Deployment package | gh-pages     |
+| Build output       | dist         |
+| Deployment branch  | gh-pages     |
+| Platform           | GitHub Pages |
 
 Deployment command:
 
@@ -426,18 +418,17 @@ npm run deploy
 The Vite configuration includes the base path for GitHub Pages:
 
 ```javascript
-base: '/integration-health-dashboard/'
+base: "/integration-health-dashboard/";
 ```
 
 ![Production deployment](docs/images/production-deployment.png)
-
 
 ### Configuration notes
 
 The deployment required the correct Vite base path. Without this configuration, the deployed page can appear blank because GitHub Pages serves the application from the repository path rather than the domain root. The base value must match the repository name:
 
 ```javascript
-base: '/integration-health-dashboard/'
+base: "/integration-health-dashboard/";
 ```
 
 This configuration is important because it allows the built JavaScript and CSS assets to load correctly in the production environment.
@@ -500,12 +491,12 @@ npm run preview
 
 ## 13. Known limitations
 
-| Limitation | Explanation |
-|---|---|
-| Static mock data | Data does not update in real time |
-| No backend | The app cannot retrieve live monitoring data |
-| No authentication | All users see the same prototype |
-| No persistent state | Filters and selection reset after refresh |
+| Limitation            | Explanation                                         |
+| --------------------- | --------------------------------------------------- |
+| Static mock data      | Data does not update in real time                   |
+| No backend            | The app cannot retrieve live monitoring data        |
+| No authentication     | All users see the same prototype                    |
+| No persistent state   | Filters and selection reset after refresh           |
 | Limited test coverage | Tests focus on utility logic, not full UI rendering |
 
 These limitations are acceptable for the MVP because the purpose of the project is to demonstrate planning, design, implementation, testing, CI/CD, deployment and documentation.
@@ -542,15 +533,15 @@ Capturing evidence was also time-consuming. Screenshots for tests, UI states, CI
 
 The MVP has several limitations.
 
-| Limitation | Explanation |
-|---|---|
-| Static mock data | The dashboard does not connect to live monitoring tools or real APIs |
-| No backend | There is no server-side logic, database or API integration |
-| No authentication | The prototype does not support users, roles or permissions |
-| No real-time updates | Interface statuses only change if the mock data file is edited |
-| Limited UI testing | Automated tests focus on utility logic rather than full component rendering |
+| Limitation           | Explanation                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| Static mock data     | The dashboard does not connect to live monitoring tools or real APIs                 |
+| No backend           | There is no server-side logic, database or API integration                           |
+| No authentication    | The prototype does not support users, roles or permissions                           |
+| No real-time updates | Interface statuses only change if the mock data file is edited                       |
+| Limited UI testing   | Automated tests focus on utility logic rather than full component rendering          |
 | No incident workflow | The dashboard shows suggested actions but does not create or update incident records |
-| No persistent state | Search, filters and selected interface reset when the page refreshes |
+| No persistent state  | Search, filters and selected interface reset when the page refreshes                 |
 
 These limitations are acceptable for the MVP because the purpose of the project was to demonstrate a controlled software engineering process and a working front-end prototype, not to build a production monitoring platform.
 
@@ -568,16 +559,16 @@ The workflow also reinforced the value of small pull requests. Smaller changes w
 
 If the MVP was developed further, the next improvements could include:
 
-| Improvement | Reason |
-|---|---|
-| Live API integration | To retrieve real monitoring data from an approved and secure source |
-| Authentication | To control who can access the dashboard |
-| Role-based access | To show different information depending on user responsibility |
-| Real-time refresh | To keep interface status information up to date |
-| Incident links | To connect failed interfaces to support tickets or incident records |
-| More detailed testing | To add React component tests and end-to-end tests |
-| Export function | To allow users to export filtered results |
-| Alert history | To show whether an interface has repeated failures over time |
+| Improvement           | Reason                                                              |
+| --------------------- | ------------------------------------------------------------------- |
+| Live API integration  | To retrieve real monitoring data from an approved and secure source |
+| Authentication        | To control who can access the dashboard                             |
+| Role-based access     | To show different information depending on user responsibility      |
+| Real-time refresh     | To keep interface status information up to date                     |
+| Incident links        | To connect failed interfaces to support tickets or incident records |
+| More detailed testing | To add React component tests and end-to-end tests                   |
+| Export function       | To allow users to export filtered results                           |
+| Alert history         | To show whether an interface has repeated failures over time        |
 
 These improvements were not included in the MVP because they would increase complexity and could introduce security, confidentiality and data protection concerns.
 
@@ -588,4 +579,3 @@ Overall, the project was successful as a small software engineering MVP. It prod
 The most valuable part of the project was not only building the interface, but showing the complete process behind it. The project demonstrates that even a small prototype benefits from requirements, planning, testing, accessibility checks, documentation and deployment.
 
 The final MVP is not a complete production monitoring tool, but it provides a realistic foundation for one. It shows how an integration support dashboard could help users identify failed or warning interfaces more quickly while keeping the prototype safe by using fictional data only.
-
